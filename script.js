@@ -29,10 +29,36 @@ function playRound(playerSelection, computerSelection) {
 
 
 function game() {
-    const player = prompt("input rock,paper, or scissors", "rock");
-    const computer = computerPlay();
+    
+    
 
-    console.log(playRound(player,computer))
+    let playerpoint = 0;
+    let comppoint = 0;
+    for(let i = 1; i <= 5; i++){
+        let player = prompt("input rock,paper, or scissors", "rock");
+        let computer = computerPlay();
+        let result = playRound(player, computer);
+
+        if(result === "PLAYER"){
+            playerpoint++;
+        }
+        else if(result === "COMP"){
+            comppoint++;
+        }
+        else {
+            continue;
+        }
+    }
+
+    if(playerpoint > comppoint){
+        console.log("PLAYER WINS", playerpoint, comppoint)
+    }
+    else if (playerpoint < comppoint) {
+        console.log("COMPUTER WINS", playerpoint, comppoint)
+    }
+    else {
+        console.log("DRAW", playerpoint, comppoint)
+    }
 }
 
 game();
