@@ -6,7 +6,6 @@ function computerPlay() {
 }
 
 
-
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toLowerCase();
     let comp = computerSelection.toLowerCase();
@@ -26,12 +25,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-
-
 function game() {
-    
-    
-
     let playerpoint = 0;
     let comppoint = 0;
     for(let i = 1; i <= 5; i++){
