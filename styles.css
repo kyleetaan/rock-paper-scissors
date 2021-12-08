@@ -1,0 +1,65 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+body {
+    background-color: grey;
+}
+
+.starting-page,
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.hands {
+    display: flex;
+    gap: 50px;
+}
+
+.start {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 0px;
+}
+
+.heads {
+    display: flex;
+    width: auto;
+    height: 100px;
+    margin: 0px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.game-name,
+.computer {
+    font-size: 50px;
+    color: white;
+    font-weight: 900px;
+    font-family: 'WaltographRegular', 'WaltographUIBold';
+}
+
+.computer-hand-and-score {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    flex: 0 1 auto;
+}
+
+.computer {
+    display: flex;
+    justify-content: center;
+}
