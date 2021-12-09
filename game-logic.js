@@ -55,4 +55,10 @@ function game() {
     }
 }
 
-game();
+function logText(e) {
+    console.log(this.classList.value);
+}
+
+const imgs = document.querySelectorAll('imgs');
+
+imgs.forEach(img => img.addEventListener('click', logText));
