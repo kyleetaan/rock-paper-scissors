@@ -13,20 +13,29 @@
     <div class="container">
         <div class="game-name">ROCK PAPER SCISSORS</div>
         <div class="hands">
-            <img src="img/rock.png" alt="ROCK">
-            <img src="img/paper.png" alt="PAPER">
-            <img src="img/scissors.png" alt="SCISSORS">
+            <img class="rock" src="img/rock.png" alt="ROCK">
+            <img class="paper" src="img/paper.png" alt="PAPER">
+            <img class="scissors" src="img/scissors.png" alt="SCISSORS">
         </div>
         <div class="computer-hand-and-score">
             <div class="computer-hand">
                 <div class="computer">Computer:</div>
-                <img class="comp-play" src="" alt="">
+                <img id="comp-play" src="img/mouse.png" alt="">
             </div>
-            <div class="win-or-lose">you lose!</div>
-            <div class="score">score</div>
+            <div class="score">
+                <div>PLAYER COMPUTER</div>
+                <div class = "score-counter"></div>
+            </div>
         </div>
     </div>
 
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <div id="winner"></div>
+            <div id="winscor"></div>
+            <button id="closeBtn">Play Again?</button>
+        </div>
+    </div>
     
     
 

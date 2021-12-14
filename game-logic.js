@@ -1,6 +1,10 @@
 function computerPlay() {
     const comp = ["rock", "paper", "scissors"];
     let attack = Math.floor(Math.random() * 3);
+    // const compimg = document.querySelector('.comp-play');
+    document.getElementById("comp-play").src = `img/${comp[attack]}.png`;
+
+    
 
     return comp[attack];
 }
@@ -25,40 +29,53 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-function game() {
-    let playerpoint = 0;
-    let comppoint = 0;
-    for(let i = 1; i <= 5; i++){
-        let player = prompt("input rock,paper, or scissors", "rock");
-        let computer = computerPlay();
-        let result = playRound(player, computer);
+const imgs = document.querySelectorAll('.hands img');
 
-        if(result === "PLAYER"){
-            playerpoint++;
-        }
-        else if(result === "COMP"){
-            comppoint++;
-        }
-        else {
-            continue;
-        }
-    }
+imgs.forEach(img => img.addEventListener('click', play));
 
-    if(playerpoint > comppoint){
-        console.log("PLAYER WINS", playerpoint, comppoint)
+
+let playerpoint = 0;
+let comppoint = 0;
+
+function play(){
+    let computer = computerPlay();
+    let result = playRound(this.className, computer);
+
+    console.log(result,this.className, computer);
+    const scor = document.querySelector('.score-counter');
+
+    if(result === "PLAYER"){
+        playerpoint++;
+        scor.textContent = `${playerpoint} - ${comppoint}`;
     }
-    else if (playerpoint < comppoint) {
-        console.log("COMPUTER WINS", playerpoint, comppoint)
+    else if(result === "COMP"){
+        comppoint++;
+        scor.textContent = `${playerpoint} - ${comppoint}`;
     }
     else {
-        console.log("DRAW", playerpoint, comppoint)
+        scor.textContent = 'DRAW';
+    }
+
+    if(playerpoint === 5){
+        showModal("Player");
+    }
+    else if (comppoint === 5) {
+        showModal("Computer");
     }
 }
 
-function logText(e) {
-    console.log(this.classList.value);
+const modal = document.getElementById('simpleModal');
+
+const clsBtn = document.getElementById('closeBtn');
+
+clsBtn.addEventListener('click', () => {
+    window.location.reload();
+})
+
+
+function showModal(winner) {
+    const win = `${winner} Wins!`;
+    document.getElementById('winner').innerText = `${win}`;
+    document.getElementById('winscor').innerText = `${playerpoint} - ${comppoint}`;
+    modal.style.display = 'block';
 }
-
-const imgs = document.querySelectorAll('imgs');
-
-imgs.forEach(img => img.addEventListener('click', logText));
